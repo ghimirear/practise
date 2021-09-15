@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // dealing with the arrays.
+    // function that reverse the array.
+    let name =["Arjun", "Safal", "Sheela"];
+    function reverseName  (name){
+        console.log(name.reverse());
+    }
+    reverseName(name);
+    // function to reverse each name in array
+    function reverseEachName (name){
+        let reversedName= [];
+        name.forEach(element => {
+          reversedName.push( element.split("").reverse().join(""));
+        });
+        console.log(reversedName);
+    }
+    reverseEachName(name);
+
+    // reduce method to calculate sum of each object.
+    let myArray =[
+        {
+            name:"Arjun",
+            age :26,
+            height :5.10,
+            balance: 500
+        },
+        {
+            name:"Safal",
+            age :24,
+            height :5.9,
+            balance: 550
+        },
+        {
+            name:"Sheela",
+            age :30,
+            height :5.5,
+            balance: 1000
+        }
+    ]
+    // function to addup all the budgets or balance 
+    function makeSum (array){
+           const sum = array.reduce((a, b)=>{
+                return {balance: a.balance + b.balance,
+                        age: a.age + b.age,
+                        height : a.height + b.height
+                        }
+           }) 
+           console.log(sum);
+    }
+    makeSum(myArray);
+    // checking the indexes and character of the string.
+    let myString = "ArjunGhimire";
+    
+    // function to check the index 
+    function checkString (string){
+        console.log(string.charAt(0));
+        console.log(string.indexOf("i"));
+        // for (let i = 0; i < string.length; i++) {
+        //     const element = string[i]
+        //     console.log(element)
+            
+        // }
+
+    }
+    checkString(myString);
+    let myMonth = ['Jan', 'Feb', 'March', 'April', 'May']
+    // invoking the splice method 
+    function mySplice (array){
+        // inserting the new element to the array at position 1
+        // first parameter is starting position and second is no. of item to be replace 
+        // in this case no is 0 that means it insert without replacing the element from the array.
+        array.splice(1, 0, 'Feb');
+        console.log(array)
+    }
+    mySplice(myMonth);
+
+    function replace (array){
+        // first no is the starting position and second is no of item to be removed.
+        array.splice(2, 3);
+        console.log(array);
+        // since we removed three items so lets replace those items "feb", march", "april"
+        array.splice(2, 0, "March", "April");
+        console.log("inserted array " + array);
+        // to insert multiple item or element then .splice(startingNo, 0 coz we are not removing, then item "sample", "nextSample")
+        // lets insert multiple month at the end of the array. 
+        const arrayLength = array.length;
+        array.splice(arrayLength, 0, "June", "July", "August", "September");
+        console.log(array);
+
+    }
+    replace(myMonth);
+    // lets learn pop method.
+    let myFish = ['Parrot', 'Anemon', 'Salmon', 'Tilapia'];
+    function popItem (array){
+        console.log(array)
+        // pop() removes an item from the last
+     let popped=   array.pop();
+        console.log(array);
+        console.log(popped);
+    }
+    popItem(myFish);
+
+</script>
+</html>

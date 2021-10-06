@@ -110,6 +110,86 @@
         console.log(popped);
     }
     popItem(myFish);
+    // lets check the array of numbers have the sum equal to 8;
+    let numbers = [1, 3, 5, 8, 9];
+    let secondNumbers = [-1, 3, 5,  8, 9];
+
+    // function to check sum
+    function checkSum (numbers){
+        let haveSumArray = [];
+        let noHaveSum = [];
+        numbers.forEach(number => {
+           
+            var remainder = 8 - number; 
+            if (numbers.includes(remainder)) {
+                haveSumArray.push(number)
+                //console.log(number)
+               
+            }
+            else noHaveSum.push(number)
+           console.log("sum is not equal to 8")
+           
+        })
+        console.log(haveSumArray) // line 133 will log the resulr [-1, 3, 5, 9]
+        console.log(noHaveSum); // line 134 will log the result [8]; 
+
+    }
+
+    checkSum(secondNumbers);
+    
+    // object class 
+    // Using the get operator
+    var o = { get gimmeFive() { return 5; } };
+    console.log(o.gimmeFive); // 5
+
+    // Using Object.defineProperty
+    //var o = {};
+    Object.defineProperty(o, 'gimmeFive', {
+    get: function() {
+    return 5;
+        }
+    });
+    console.log(o.gimmeFive); // 5
+
+
+    // defining setter method .
+
+    var o = { set value(val) { this.anotherValue = val; } };
+o.value = 5;
+console.log(o.value); // undefined
+console.log(o.anotherValue); // 5
+
+// Using Object.defineProperty
+var o = {};
+Object.defineProperty(o, 'value', {
+  set: function(val) {
+    this.anotherValue = val;
+  }
+});
+o.value = 5;
+console.log(o.value); // undefined
+console.log(o.anotherValue); // 5
+
+    // creating new object from object
+    // lets define the object
+    const person = {
+  isHuman: false,
+  // method
+  printIntroduction: function() {
+    console.log(`My name is ${this.fname} ${this.lname}. Am I human? ${this.isHuman}`);
+  }
+};
+// creating new instance of object by Object.create(**need to pass parent object**) method
+const me = Object.create(person);
+
+me.fname = 'Arjun';
+me.lname = "Ghimire"; // "fname and lname" is a property set on "me", but not on "person"
+me.isHuman = true; // inherited properties can be overwritten
+
+me.printIntroduction();
+
+
+
 
 </script>
 </html>

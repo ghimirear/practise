@@ -112,7 +112,7 @@
     popItem(myFish);
     // lets check the array of numbers have the sum equal to 8;
     let numbers = [1, 3, 5, 8, 9];
-    let secondNumbers = [-1, 3, 5,  8, 9];
+    let secondNumbers = [-1, 3, 5,0,  8, 9];
 
     // function to check sum
     function checkSum (numbers){
@@ -126,8 +126,10 @@
                 //console.log(number)
                
             }
-            else noHaveSum.push(number)
-           console.log("sum is not equal to 8")
+            else {noHaveSum.push(number);
+                console.log(noHaveSum);
+            }
+           
            
         })
         console.log(haveSumArray) // line 133 will log the resulr [-1, 3, 5, 9]
@@ -188,8 +190,89 @@ me.isHuman = true; // inherited properties can be overwritten
 
 me.printIntroduction();
 
+(() => {
+    try {
+        console.log("2");
+        return 2;
+        
+    } finally {
+        console.log("3");
+
+        return 3;
+       
+    }
+})();
+
+
+// classs method to create a object
+class Person {
+
+constructor(fname, lname, email, phone) {
+  this.fname = fname;
+  this.lname = lname;
+  this.email= email;
+  this.phone = phone;
+}
+
+introduce() {
+  console.log(`Hello, my name is ${this.fname} ${this.lname} my email is ${this.email}`);
+  console.log(`${this.lname} ${this.phone}`);
+}
+
+}
+
+const otto = new Person('Otto', "Ostwald", "ottooswald@gmail.com", 4433557644);
+
+otto.introduce();
+
+
+let ipaddress = "192_168_1_241"; 
+function main (address){
+    console.log(address);
+    let splitArray= [];
+
+  splitArray.push(address.split("_"));
+ console.log(splitArray);
+
+    splitArray.forEach(fragments => {
+    //     console.log(fragment);
+    //    if (fragment*1 >0 && fragment*1 <225) {
+    //        console.log(fragment)
+    //        console.log("valid");
+    //    } else console.log("invalid");
+        fragments.forEach(fragment =>{
+               if (fragment*1 >0 && fragment*1 <245) {
+           
+           console.log("valid");
+       } else console.log("invalid");
+        })
+        
+    })
+
+}
+main(ipaddress);
 
 
 
+
+
+// let numbersAre = 192_168_1_241
+// function main(input)
+// {
+//         // lets check for no if it is smaller than 10 or not;
+//      let   sumArray = [];
+//       input.forEach(number =>{
+//               if(number < 10 && number > (-10)){
+//                       sumArray.push(number)
+//               }
+//       })
+//       let sum = 0
+//       console.log(sumArray);
+//       for(let i = 0; i < sumArray.length; i++){
+//               sum =+ sumArray[i];
+//       }
+//       return sum;
+// }
+// console.log(main(numbersAre));
 </script>
 </html>
